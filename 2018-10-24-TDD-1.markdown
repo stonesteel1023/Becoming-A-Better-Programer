@@ -1,0 +1,32 @@
+<code>
+public class VendingMachineTest {
+@Test // 잔액 확인
+public void testGetChangeAmount() throws Exception {
+ 464 테스트 주도 개발: 고품질 쾌속개발을 위한 TDD 실천법과 도구
+VendingMachine machine = new VendingMachine(); machine.putCoin(100); // 동전 100원 투입
+assertEquals("투입금액 100원", 100, machine.getChangeAmount());
+machine.putCoin(500);
+assertEquals("추가 투입금액 500원", 600, machine.getChangeAmount()); }
+@Test // 거스름돈 50원
+public void testReturnChangeCoinSet_oneCoin_50() throws Exception {
+VendingMachine machine = new VendingMachine(); machine.putCoin(100);
+machine.putCoin(100);
+machine.putCoin(500);
+machine.selectDrink(new Drink("Cola", 650));
+CoinSet expectedCoinSet = new CoinSet(); // 코인 컨테이너 클래스 expectedCoinSet.add(50);
+assertEquals("700원 투입 후 650원 음료선택", expectedCoinSet,
+machine.getChangeCoinSet());
+}
+@Test // 거스름돈 180원
+public void testReturnChangeCoinSet_coins_180() throws Exception {
+VendingMachine machine = new VendingMachine(); machine.putCoin(100);
+machine.putCoin(100);
+machine.putCoin(500);
+machine.selectDrink(new Drink("Soda", 520));
+CoinSet expectedCoinSet = new CoinSet(); expectedCoinSet.add(100); expectedCoinSet.add(50); expectedCoinSet.add(10); expectedCoinSet.add(10); expectedCoinSet.add(10);
+ 10장 실습 예제 465
+
+assertEquals("700원 투입 후 520원 음료선택", expectedCoinSet, machine.getChangeCoinSet());
+ } }
+ 
+ </code>
