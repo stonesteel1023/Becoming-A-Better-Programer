@@ -1,5 +1,4 @@
 <code blocks>
- 
 public class VendingMachineTest {
 @Test // 잔액 확인
 public void testGetChangeAmount() throws Exception {
@@ -25,9 +24,7 @@ machine.putCoin(100);
 machine.putCoin(500);
 machine.selectDrink(new Drink("Soda", 520));
 CoinSet expectedCoinSet = new CoinSet(); expectedCoinSet.add(100); expectedCoinSet.add(50); expectedCoinSet.add(10); expectedCoinSet.add(10); expectedCoinSet.add(10);
- 10장 실습 예제 465
-
+ 
 assertEquals("700원 투입 후 520원 음료선택", expectedCoinSet, machine.getChangeCoinSet());
  } }
- 
  </code blocks>
