@@ -1,4 +1,4 @@
-<codes>
+<code block>
  
 public class VendingMachineTest {
 @Test // 잔액 확인
@@ -30,4 +30,4 @@ CoinSet expectedCoinSet = new CoinSet(); expectedCoinSet.add(100); expectedCoinS
 assertEquals("700원 투입 후 520원 음료선택", expectedCoinSet, machine.getChangeCoinSet());
  } }
  
- </codes>
+ </code block>
